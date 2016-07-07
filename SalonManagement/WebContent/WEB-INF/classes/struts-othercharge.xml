@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation"
+		value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources"
+		value="ApplicationResources"/>
+		
+	<package name="othercharge" extends="struts-default, json-default" namespace="/">
+	
+		<action name="extraChargeMaintenance" class="com.gss.actions.ExtraChargeMaintenanceAction" method="execute">
+			<result name="success">maintenance-extra.jsp</result>
+		</action>
+
+		<action name="createExtraCharge" class="com.gss.actions.CreateExtraChargeAction" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="getAllExtraCharge" class="com.gss.actions.GetAllExtraCharge" method="execute">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="updateExtraCharge" class="com.gss.actions.UpdateExtraChargeAction" method="execute">
+			<result name="success">redirect-maintenance-extra.jsp</result>
+			<result name="failed">redirect-maintenance-extra.jsp</result>
+		</action>
+		
+		<action name="deactivateExtraCharge" class="com.gss.actions.DeactivateExtraChargeAction" method="execute">
+			<result name="success">redirect-maintenance-extra.jsp</result>
+			<result name="failed">redirect-maintenance-extra.jsp</result>
+		</action>
+	
+	</package>	
+		
+		
+</struts>
